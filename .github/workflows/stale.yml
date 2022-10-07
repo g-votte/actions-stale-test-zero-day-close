@@ -1,0 +1,30 @@
+name: stale
+
+on:
+  schedule:
+    - cron: '0 23 * * *'
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+
+    if: github.repository == 'g-votte/actions-stale-test'
+    steps:
+    - uses: actions/stale@v5
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-issue-message: 'This message is for normal issue to stale.'
+        stale-pr-message: 'This message is for normal PR to stale.'
+        close-issue-message: 'This message is for normal issue to be closed.'
+        close-pr-message: 'This message is for normal PR to be closed.'
+        days-before-issue-stale: 1
+        days-before-issue-close: 0
+        days-before-pr-stale: 1
+        days-before-pr-close: 1
+        stale-issue-label: 'stale'
+        stale-pr-label: 'stale'
+        exempt-issue-labels: 'no-stale'
+        exempt-pr-labels: 'no-stale'
+        operations-per-run: 1000
+
