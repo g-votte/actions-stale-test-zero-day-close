@@ -9,7 +9,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    if: github.repository == 'g-votte/actions-stale-test'
+    if: github.repository == 'g-votte/actions-stale-test-zero-day-close'
     steps:
     - uses: actions/stale@v5
       with:
